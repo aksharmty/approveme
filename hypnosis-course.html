@@ -94,9 +94,19 @@
         <section class="mb-4">
           <h4>How to join & Payment</h4>
           <p class="small-muted">Fee: <strong>₹5,000</strong> — Pay online or via UPI. After payment send the screenshot on WhatsApp to confirm your seat.</p>
-          <div class="d-flex gap-2 flex-wrap">
-            <!-- a class="btn btn-primary cta" href="#" role="button">Pay & Reserve (Online)</a -->
-            <a class="btn btn-outline-secondary cta" href="upi://pay?pa=9213816442@apl&pn=Raj Kumar&am=5000&cu=INR" role="button">Pay with UPI</a>
+          
+          <!-- Mobile UPI Button -->
+          <div class="d-md-none mb-3">
+            <a class="btn btn-outline-secondary cta" href="upi://pay?pa=9213816442@apl&pn=Raj Kumar&am=5000&cu=INR" role="button">Pay with UPI (Mobile)</a>
+          </div>
+
+          <!-- Desktop QR Code -->
+          <div class="d-none d-md-block text-center">
+            <p>Scan QR Code to Pay:</p>
+            <img id="upi-qr" alt="UPI QR Code" style="max-width:200px;">
+          </div>
+
+          <div class="d-flex gap-2 flex-wrap mt-2">
             <a class="btn btn-light cta" href="https://wa.me/919213816442?text=hypnosis+course+from+approveme+website">Send WhatsApp Screenshot</a>
           </div>
         </section>
@@ -134,25 +144,24 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">Language and materials?</button>
               </h2>
               <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faq">
-                <div class="accordion-body small-muted">Course language is Hindi. <!-- You will receive audio recordings and a short PDF practice guide in Hindi/English. -></div>
+                <div class="accordion-body small-muted">Course language is Hindi. <!-- You will receive audio recordings and a short PDF practice guide in Hindi/English. --></div>
               </div>
             </div>
 
             <div class="accordion-item">
               <h2 class="accordion-header" id="faq4">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">If I am not satisfied, I will refund my money.</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">If I am not satisfied, can I refund my money?</button>
               </h2>
               <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faq">
-                <div class="accordion-body small-muted">No, We have steric no refund policy. once make payment no refund no cancellation.</div>
+                <div class="accordion-body small-muted">No. We have a strict no refund policy. Once payment is made, no refund or cancellation.</div>
               </div>
             </div>
-      
 
           </div>
         </section>
 
         <footer class="mt-4 mb-5 small-muted text-center">
-          <p>© 2025 Akshar Hanuman Dham • For course queries WhatsApp: <a href="https://wa.me/919213816442">+91 9213816442</a></p>
+          <p>© 2025 Approveme Manifestation Center • For course queries WhatsApp: <a href="https://wa.me/919213816442">+91 9213816442</a></p>
         </footer>
 
       </div>
@@ -160,5 +169,17 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // UPI QR code generation for desktop
+    const upi = {
+      pa: "9213816442@apl",
+      pn: "Raj Kumar",
+      am: "5000",
+      cu: "INR"
+    };
+    const upiUrl = `upi://pay?pa=${upi.pa}&pn=${upi.pn}&am=${upi.am}&cu=${upi.cu}`;
+    document.getElementById("upi-qr").src = `https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=${encodeURIComponent(upiUrl)}`;
+  </script>
 </body>
 </html>
