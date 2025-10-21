@@ -342,7 +342,9 @@
                 <p>Scan QR Code to Pay:</p>
                 <canvas id="upi-qr" style="max-width:250px;"></canvas>
                 <br>
-                <a id="download-qr" class="btn-success">Download QR Code</a>
+                <button id="copy-upi" class="btn-success">Copy UPI ID</button>
+    <p style="margin-top:10px; font-size:14px; color:#666;">UPI ID: <strong>9213816442@apl</strong></p>
+                <!-- a id="download-qr" class="btn-success">Download QR Code</a -->
             </div>
 
             <a class="btn-success" href="https://wa.me/919213816442?text=Hypnosis+course+from+website">Send WhatsApp
@@ -423,10 +425,15 @@
             if (error) console.error(error);
         });
 
-        document.getElementById('download-qr').addEventListener('click', function () {
-            this.href = canvas.toDataURL("image/png");
-            this.download = "upi_qr.png";
-        });
+        document.getElementById('copy-upi').addEventListener('click', function () {
+    navigator.clipboard.writeText("9213816442@apl").then(() => {
+        alert("✅ UPI ID copied to clipboard: 9213816442@apl");
+    });
+});
+ //document.getElementById('download-qr').addEventListener('click', function () {
+   //         this.href = canvas.toDataURL("image/png");
+     //       this.download = "upi_qr.png";
+       // });
 
         // Accordion
         const headers = document.querySelectorAll('.accordion-header');
