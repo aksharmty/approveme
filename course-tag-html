@@ -1,0 +1,102 @@
+<!-- price.html -->
+<div class="price-box">
+  <h3>💫 Learn Hypnosis in 3 Hours</h3>
+  <p>🕒 Duration: <strong>3 Hours</strong></p>
+  <p>💰 Course Fee: <strong>₹5000</strong></p>
+  <p>UPI ID: <strong>9213816442@apl</strong></p>
+</div>
+<!-- Buttons Section -->
+<div style="text-align:center; margin:20px 0; display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">
+
+  <!-- Mobile UPI Button (visible on mobile) -->
+  <a class="btn-gradient mobile-btn" 
+     href="upi://pay?pa=9213816442@apl&pn=Raj%20Kumar&am=5000&cu=INR">
+     💸 Pay with UPI
+  </a>
+
+  <!-- Desktop Copy UPI ID -->
+  <button id="copy-upi" class="btn-success desktop-btn">Copy UPI ID</button>
+  </div>
+<p style="text-align:center;">After payment, send the screenshot on WhatsApp to confirm your seat.<br><br></p>
+<p style="text-align:center;"><br><br>More Details<br><br></p>
+<div style="text-align:center; display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:15px;">
+  <!-- Call Now Button -->
+  <a href="tel:+919213816442" class="btn-success">📞 Call Now</a>
+
+  <!-- WhatsApp Screenshot Button -->
+  <a href="https://wa.me/919213816442?text=Hypnosis+course+from+website" class="btn-success"> 📲 WhatsApp  </a>
+
+  <!-- More Details Button -- >
+  <a href="hypnosis-course.html" class="btn-gradient">More Details</a -->
+</div>
+
+
+<style>
+/* Buttons */
+.btn-success {
+  background: #28a745;
+  border-radius: 50px;
+  padding: 12px 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-success:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #ff6cab, #7366ff);
+  color: #fff;
+  border-radius: 50px;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-gradient:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 10px rgba(115,102,255,0.5);
+}
+
+/* Responsive visibility */
+.mobile-btn { display:none; }
+.desktop-btn { display:inline-block; }
+
+@media(max-width:768px) {
+  .mobile-btn { display:inline-block; }
+  .desktop-btn { display:none; }
+}
+
+/* Price Box */
+.price-box {
+  background: #fdf5ff;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+  margin-top: 40px;
+  line-height: 1.6;
+}
+.price-box h3 {
+  color: #6a1b9a;
+  font-size: 1.4em;
+}
+.price-box p {
+  font-size: 1.05em;
+  color: #333;
+}
+</style>
+
+<script>
+// Copy UPI ID
+document.getElementById("copy-upi")?.addEventListener("click", function () {
+  navigator.clipboard.writeText("9213816442@apl").then(() => {
+    alert("✅ UPI ID copied to clipboard: 9213816442@apl");
+  });
+});
+</script>
