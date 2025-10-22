@@ -7,17 +7,26 @@
 
 <p style="text-align:center;">After payment, send the screenshot on WhatsApp to confirm your seat.</p>
 
-<!-- Mobile & Desktop UPI Button -->
-<div style="text-align:center; margin:20px 0;">
+<!-- Mobile UPI Button -->
+<div class="mobile-upi">
   <a class="btn-gradient btn-custom" 
      href="upi://pay?pa=9213816442@apl&pn=Raj%20Kumar&am=5000&cu=INR">
-     💸 Pay with UPI
+     💸 Pay with UPI (Mobile)
   </a>
-  <button id="copy-upi" class="btn-success">Copy UPI ID</button>
 </div>
 
-<div style="text-align:center; margin:10px 0;">
-  <p style="font-size:14px; color:#666;">UPI ID: <strong>9213816442@apl</strong></p>
+<!-- Desktop QR Code -->
+<div class="qr-code">
+  <p>Scan QR Code to Pay:</p>
+  <canvas id="upi-qr" width="250" height="250" style="margin:auto;display:block;"></canvas>
+  <br>
+  <button id="copy-upi" class="btn-success">Copy UPI ID</button>
+  <p style="margin-top:10px; font-size:14px; color:#666;">
+    UPI ID: <strong>9213816442@apl</strong>
+  </p>
+</div>
+
+<div style="text-align:center;">
   <a class="btn-success" 
      href="https://wa.me/919213816442?text=Hypnosis+course+from+website">
      📲 Send WhatsApp Screenshot
@@ -35,10 +44,9 @@
   text-decoration: none;
   margin: 5px;
   font-weight: 600;
-  cursor: pointer;
 }
 
-/* ✅ Gradient Button */
+/* ✅ Gradient Button (Fix for Missing Background) */
 .btn-gradient {
   background: linear-gradient(135deg, #ff6cab, #7366ff);
   color: #fff;
@@ -48,9 +56,26 @@
   display: inline-block;
   font-weight: 600;
 }
-.btn-gradient:hover, .btn-success:hover {
+.btn-gradient:hover {
   opacity: 0.9;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(115,102,255,0.5);
+}
+
+/* ✅ Responsive */
+.mobile-upi {
+  display: none;
+  margin: 20px 0;
+  text-align: center;
+}
+@media(max-width:768px) {
+  .mobile-upi {
+    display: block;
+  }
+}
+
+.qr-code {
+  text-align: center;
+  margin: 20px 0;
 }
 
 .price-box {
@@ -72,10 +97,20 @@
 }
 </style>
 
+<!-- ✅ QR Code Script -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
 <script>
+const upiUrl = "upi://pay?pa=9213816442@apl&pn=Raj%20Kumar&am=5000&cu=INR";
+const canvas = document.getElementById("upi-qr");
+
+// generate QR on canvas
+QRCode.toCanvas(canvas, upiUrl, { width: 250 }, function (error) {
+  if (error) console.error(error);
+});
+
 document.getElementById("copy-upi").addEventListener("click", function () {
   navigator.clipboard.writeText("9213816442@apl").then(() => {
     alert("✅ UPI ID copied to clipboard: 9213816442@apl");
   });
 });
-</script>
+</script> qr-code ko remove karate hai. pay with upi(mobile) or copy upi id use karte hai
