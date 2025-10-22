@@ -7,77 +7,73 @@
 
 <p style="text-align:center;">After payment, send the screenshot on WhatsApp to confirm your seat.</p>
 
-<!-- Mobile UPI Button -->
-<div class="mobile-upi">
-  <a class="btn-gradient btn-custom" 
+<!-- Buttons Section -->
+<div style="text-align:center; margin:20px 0; display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">
+
+  <!-- Mobile UPI Button (visible on mobile) -->
+  <a class="btn-gradient mobile-btn" 
      href="upi://pay?pa=9213816442@apl&pn=Raj%20Kumar&am=5000&cu=INR">
-     💸 Pay with UPI (Mobile)
+     💸 Pay with UPI
   </a>
-</div>
 
-<!-- Desktop QR Code -->
-<div class="qr-code">
-  <p>Scan QR Code to Pay:</p>
-  <canvas id="upi-qr" width="250" height="250" style="margin:auto;display:block;"></canvas>
-  <br>
-  <button id="copy-upi" class="btn-success">Copy UPI ID</button>
-  <p style="margin-top:10px; font-size:14px; color:#666;">
-    UPI ID: <strong>9213816442@apl</strong>
-  </p>
-</div>
+  <!-- Desktop Copy UPI ID -->
+  <button id="copy-upi" class="btn-success desktop-btn">Copy UPI ID</button>
 
-<div style="text-align:center;">
-  <a class="btn-success" 
-     href="https://wa.me/919213816442?text=Hypnosis+course+from+website">
-     📲 Send WhatsApp Screenshot
+  <!-- Call Now Button -->
+  <a href="tel:+919213816442" class="btn-success">📞 Call Now</a>
+
+  <!-- WhatsApp Screenshot Button -->
+  <a href="https://wa.me/919213816442?text=Hypnosis+course+from+website" class="btn-success">
+    📲 WhatsApp Screenshot
   </a>
+
+  <!-- More Details Button -->
+  <a href="hypnosis-course.html" class="btn-gradient">More Details</a>
+
 </div>
 
 <style>
-/* ✅ Common Buttons */
+/* Buttons */
 .btn-success {
   background: #28a745;
   border-radius: 50px;
   padding: 12px 25px;
   color: white;
-  display: inline-block;
   text-decoration: none;
-  margin: 5px;
   font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-success:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-/* ✅ Gradient Button (Fix for Missing Background) */
 .btn-gradient {
   background: linear-gradient(135deg, #ff6cab, #7366ff);
   color: #fff;
   border-radius: 50px;
   padding: 12px 25px;
   text-decoration: none;
-  display: inline-block;
   font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
 .btn-gradient:hover {
   opacity: 0.9;
   box-shadow: 0 0 10px rgba(115,102,255,0.5);
 }
 
-/* ✅ Responsive */
-.mobile-upi {
-  display: none;
-  margin: 20px 0;
-  text-align: center;
-}
+/* Responsive visibility */
+.mobile-btn { display:none; }
+.desktop-btn { display:inline-block; }
+
 @media(max-width:768px) {
-  .mobile-upi {
-    display: block;
-  }
+  .mobile-btn { display:inline-block; }
+  .desktop-btn { display:none; }
 }
 
-.qr-code {
-  text-align: center;
-  margin: 20px 0;
-}
-
+/* Price Box */
 .price-box {
   background: #fdf5ff;
   padding: 25px;
@@ -97,20 +93,11 @@
 }
 </style>
 
-<!-- ✅ QR Code Script -->
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
 <script>
-const upiUrl = "upi://pay?pa=9213816442@apl&pn=Raj%20Kumar&am=5000&cu=INR";
-const canvas = document.getElementById("upi-qr");
-
-// generate QR on canvas
-QRCode.toCanvas(canvas, upiUrl, { width: 250 }, function (error) {
-  if (error) console.error(error);
-});
-
-document.getElementById("copy-upi").addEventListener("click", function () {
+// Copy UPI ID
+document.getElementById("copy-upi")?.addEventListener("click", function () {
   navigator.clipboard.writeText("9213816442@apl").then(() => {
     alert("✅ UPI ID copied to clipboard: 9213816442@apl");
   });
 });
-</script> qr-code ko remove karate hai. pay with upi(mobile) or copy upi id use karte hai
+</script>
