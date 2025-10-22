@@ -89,7 +89,7 @@
 
   <h2>✨ Learn Hypnosis Now</h2>
   <p>If you want to understand how your mind shapes emotions, relationships, and energy, learning hypnosis is a powerful step. It’s not just a skill — it’s a way to awaken love and balance from within. You can use it for personal healing, emotional growth, or to help others transform their love life too.</p>
- <div id="price-section"></div>
+ <div w3-include-html="price.html"></div>
   <div class="col-md-12" style="text-align: center; margin-top: 20px; color: #888; font-style: italic;"><br><br>
     #LoveThroughHypnosis #HealWithHypnosis #SelfLoveJourney #MindPowerForLove #SpiritualGrowth #LearnHypnosis
     <br><br>
@@ -118,12 +118,5 @@
   <script>
     w3.includeHTML();
   </script>
-  <script>
-// Dynamically load price.html into all pages
-fetch('price.html')
-  .then(res => res.text())
-  .then(data => document.getElementById('price-section').innerHTML = data)
-  .catch(err => console.error('Error loading price:', err));
-</script>
 </body>
 </html>
